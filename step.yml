@@ -1,13 +1,13 @@
 title: "Android Manifest Info"
-summary: Extracts Android manifest attributes to environment variables.
+summary: Extracts Android module level build.gradle file properties to environment variables.
 description: |-
-  Read Android manifest attriubtes from `AndroidManifest.xml` file,
-  then export that data to environment variables prefixed with **AMI_**.
+  Read Android module level build.gradle file properties from `build.gradle` file,
+  then export that data to environment variables prefixed with **GRADLE_**.
 
   After this you can use these environment variables in other steps.
-website: https://github.com/tomcurran/bitrise-step-android-manifest-info
-source_code_url: https://github.com/tomcurran/bitrise-step-android-manifest-info
-support_url: https://github.com/tomcurran/bitrise-step-android-manifest-info/issues
+website:
+source_code_url:
+support_url:
 host_os_tags:
   - osx-10.10
 project_type_tags:
@@ -21,26 +21,26 @@ type_tags:
 is_always_run: false
 is_skippable: false
 inputs:
-  - manifest_file: "$BITRISE_ANDROID_MANIFEST_PATH"
+  - gradle_file:
     opts:
-      title: "AndroidManifest.xml file path"
+      title: "Module level build.gradle file path"
       summary: ""
       description: |
-        Path to the given project's AndroidManifest.xml file.
+        Path to the given project's module level build.gradle file.
       is_required: true
 outputs:
-  - AMI_VERSION_CODE:
+  - GRADLE_VERSION_CODE:
     opts:
-      title: Version Code (versionCode from AndroidManifest.xml)
-  - AMI_VERSION_NAME:
+      title: Version Code (versionCode from module level build.gradle file)
+  - GRADLE_VERSION_NAME:
     opts:
-      title: Version Name (versionName from AndroidManifest.xml)
-  - AMI_PACKAGE_NAME:
+      title: Version Name (versionName from module level build.gradle file)
+  - GRADLE_APPLICATION_ID:
     opts:
-      title: Package Name (package from AndroidManifest.xml)
-  - AMI_MIN_SDK_VERSION:
+      title: Application id (application id from module level build.gradle file)
+  - GRADLE_MIN_SDK_VERSION:
     opts:
-      title: Minimum SDK Version (minSdkVersion from AndroidManifest.xml)
-  - AMI_TARGET_SDK_VERSION:
+      title: Minimum SDK Version (minSdkVersion from module level build.gradle file)
+  - GRADLE_TARGET_SDK_VERSION:
     opts:
-      title: Target SDK Version (targetSdkVersion from AndroidManifest.xml)
+      title: Target SDK Version (targetSdkVersion from module level build.gradle file)
